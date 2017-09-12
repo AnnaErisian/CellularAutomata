@@ -1,29 +1,26 @@
 package jbinkrot.cellautomata.planar;
 
 import java.util.Arrays;
-import java.util.HashSet;
 
 public class SimplePlanarAutomata {
 	
 	private boolean[][] state;
-	private HashSet<SimplePlanarAutomataRule> rules;
+	private SimplePlanarAutomataRule rule;
 	private int width;
 	private int height;
 	
-	public SimplePlanarAutomata(boolean[][] initialState) {
-		width = state.length;
-		height = state[0].length;
-		rules = new HashSet<SimplePlanarAutomataRule>();
-
+	public SimplePlanarAutomata(boolean[][] initialState, SimplePlanarAutomataRule rule) {
+		width = initialState.length;
+		height = initialState[0].length;
+		this.rule = rule;
 		setState(initialState);
 	}
 	
-	public SimplePlanarAutomata(int width, int height) {
+	public SimplePlanarAutomata(int width, int height, SimplePlanarAutomataRule rule) {
 		this.width = width;
 		this.height = height;
-		state = new boolean[width][];
-		for(int i = 0; i < width; i++)
-			state[i] = new boolean[height];
+		this.rule = rule;
+		state = new boolean[width][height];
 	}
 
 	public void setRule(SimplePlanarAutomataRule rule, boolean result) {
@@ -42,23 +39,21 @@ public class SimplePlanarAutomata {
 		//ensure rectangularity
 		for(boolean[] b : newState) {
 			if(b.length != height) {
-				throw new IllegalArgumentException("State must be rectangular");
+				throw new IllegalArgumentException("State must be rectangular: " + b.length + " != " + height);
 			}
 		}
 	}
 	
 	public boolean[][] step() {
 		boolean[][] oldState = getState();
-		
-		
+
+		for(int col = 0; col < width; col++) {
+			for(int row = 0; row < height; row++) {
+				state[col][row] = rule.getResultState(oldState, col, row);
+			}
+		}
 		
 		return getState();
-	}
-	
-	private int getStateNum(boolean left, boolean center, boolean right) {
-		return (left ? 1 : 0) +
-				(center ? 2 : 0) +
-				(right ? 4 : 0);
 	}
 	
 }
