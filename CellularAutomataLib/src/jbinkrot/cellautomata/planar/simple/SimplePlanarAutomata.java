@@ -1,4 +1,4 @@
-package jbinkrot.cellautomata.planar;
+package jbinkrot.cellautomata.planar.simple;
 
 import java.util.Arrays;
 

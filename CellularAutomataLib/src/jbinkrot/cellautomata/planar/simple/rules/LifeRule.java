@@ -1,6 +1,6 @@
-package jbinkrot.cellautomata.planar.rules;
+package jbinkrot.cellautomata.planar.simple.rules;
 
-import jbinkrot.cellautomata.planar.SimplePlanarAutomataRule;
+import jbinkrot.cellautomata.planar.simple.SimplePlanarAutomataRule;
 
 public class LifeRule extends SimplePlanarAutomataRule {
 	

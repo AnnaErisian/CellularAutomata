@@ -1,6 +1,7 @@
 package jbinkrot.cellautomata.planar;
 
-import jbinkrot.cellautomata.planar.rules.LifeRule;
+import jbinkrot.cellautomata.planar.simple.SimplePlanarAutomata;
+import jbinkrot.cellautomata.planar.simple.rules.LifeRule;
 
 public class GameOfLifeTest {
 	public static void main(String[] args) {
