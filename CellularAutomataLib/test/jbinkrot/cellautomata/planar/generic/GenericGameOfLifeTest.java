@@ -1,11 +1,11 @@
-package jbinkrot.cellautomata.planar;
+package jbinkrot.cellautomata.planar.generic;
 
-import jbinkrot.cellautomata.planar.simple.SimplePlanarAutomata;
-import jbinkrot.cellautomata.planar.simple.rules.LifeRule;
+import jbinkrot.cellautomata.planar.generic.GenericPlanarAutomata;
+import jbinkrot.cellautomata.planar.generic.rules.GenericLifeRule;
 
-public class GameOfLifeTest {
+public class GenericGameOfLifeTest {
 	public static void main(String[] args) {
-		boolean[][] inistate = new boolean[20][20];
+		Boolean[][] inistate = new Boolean[20][20];
 		inistate[3][3] = true;
 		inistate[3][4] = true;
 		inistate[3][5] = true;
@@ -16,13 +16,13 @@ public class GameOfLifeTest {
 		inistate[11][4] = true;
 		inistate[11][3] = true;
 		
-		SimplePlanarAutomata a = new SimplePlanarAutomata(inistate, new LifeRule());
+		GenericPlanarAutomata<Boolean> a = new GenericPlanarAutomata<Boolean>(inistate, new GenericLifeRule());
 		
 		for(int i = 0; i < 100; i++) {
-			boolean[][] s = a.getState();
+			Boolean[][] s = a.getState();
 			for(int row = 0; row < 20; row++) {
 				for(int col = 0; col < 20; col++) {
-					System.out.print(s[col][row] ? "██" : "  ");
+					System.out.print(s[col][row] == Boolean.TRUE ? "██" : "  ");
 				}
 				System.out.println();
 			}

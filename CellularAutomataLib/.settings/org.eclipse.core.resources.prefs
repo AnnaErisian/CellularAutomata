@@ -1,3 +1,4 @@
 eclipse.preferences.version=1
 encoding//test/jbinkrot/cellautomata/elementary/ElementaryAutomataTest.java=UTF-8
-encoding//test/jbinkrot/cellautomata/planar/GameOfLifeTest.java=UTF-8
+encoding//test/jbinkrot/cellautomata/planar/generic/GenericGameOfLifeTest.java=UTF-8
+encoding//test/jbinkrot/cellautomata/planar/simple/GameOfLifeTest.java=UTF-8

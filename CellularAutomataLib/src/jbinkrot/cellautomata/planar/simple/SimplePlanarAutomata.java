@@ -24,7 +24,7 @@ public class SimplePlanarAutomata {
 	}
 
 	public void setRule(SimplePlanarAutomataRule rule, boolean result) {
-		
+		this.rule = rule; 
 	}
 	
 	public boolean[][] getState() {
